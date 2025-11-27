@@ -1,11 +1,15 @@
-func assertEqual(_ a: Int, _ b: Int, _ message: String) {
+func assertEqual<T: Equatable>(_ a: T, _ b: T, _ message: String) {
     if a != b {
-        print("❌ FAIL: \(message)")
-        exit(1)
+        fatalError("❌ Ошибка: \(message). Получено \(a), ожидалось \(b)")
     }
 }
 
-assertEqual(add(2, 3), 5, "2 + 3 должно быть 5")
-assertEqual(add(-1, 1), 0, "-1 + 1 должно быть 0")
+@main
+struct TestRunner {
+    static func main() {
+        assertEqual(add(2, 3), 5, "2 + 3 должно быть 5")
+        assertEqual(add(-1, 1), 0, "-1 + 1 должно быть 0")
 
-print("✅ All tests passed!")
+        print("✅ All tests passed!")
+    }
+}
