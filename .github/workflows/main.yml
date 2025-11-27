@@ -19,4 +19,4 @@ jobs:
           python-version: "3.11"
 
       - name: Run tests
-        run: ./run_test.sh
+        run: ./run_tests.sh
