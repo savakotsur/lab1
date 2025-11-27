@@ -1,0 +1,21 @@
+name: Swift tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Swift
+        uses: fwal/setup-swift@v1
+        with:
+          swift-version: "5.9"
+
+      - name: Run tests
+        run: ./run_test.sh
