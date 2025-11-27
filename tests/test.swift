@@ -1,5 +1,3 @@
-import Foundation
-
 func assertEqual(_ a: Int, _ b: Int, _ message: String) {
     if a != b {
         print("❌ FAIL: \(message)")
