@@ -24,3 +24,6 @@ jobs:
 
       - name: Run tests
         run: ./run_tests.sh
+
+      - name: Generate docs
+        run: ./generate_docs.sh
