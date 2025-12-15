@@ -26,4 +26,4 @@ jobs:
         run: ./run_tests.sh
 
       - name: Generate docs
-        run: ./generate_docs.sh
+        run: ./docs/generate_docs.sh
