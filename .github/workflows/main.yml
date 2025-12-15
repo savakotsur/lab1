@@ -1,5 +1,8 @@
 name: Python tests
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -27,3 +30,18 @@ jobs:
 
       - name: Generate docs
         run: ./docs/generate_docs.sh
+
+      - name: Commit and push updated docs
+        # чтобы не попасть в бесконечный цикл, не пушим коммиты,
+        # которые сам GitHub Actions создал
+        if: github.actor != 'github-actions[bot]'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add docs/generated.md
+
+          # если изменений нет, commit вернёт ошибку, поэтому || echo
+          git commit -m "Update generated docs" || echo "No changes to commit"
+
+          git push
