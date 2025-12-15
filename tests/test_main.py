@@ -19,5 +19,5 @@ if __name__ == "__main__":
     test_add()
     print("Testing multiply")
     test_multiply
-    sleep(10)
+    sleep(25)
     print("✅ All tests passed!")
