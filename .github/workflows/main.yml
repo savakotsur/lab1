@@ -6,6 +6,9 @@ on:
       - main
       - dev
       - release
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
